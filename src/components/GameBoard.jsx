@@ -10,7 +10,6 @@ export default function GameBoard({ onSelectSquare, board }) {
                   className={playerSymbol ? `shake ${playerSymbol.toLowerCase()}selected` : ''}
                   onClick={() => onSelectSquare(rowIndex, colIndex)}
                   disabled={playerSymbol !== null}
-                  style={{borderRadius: '0.5rem'}}
                 >
                   {playerSymbol}
                 </button>

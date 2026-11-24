@@ -2,7 +2,7 @@ import Avatar from "./Avatar";
 
 export default function GameOver({ winner, onRestart }) {
   return (
-    <div id="game-over" style={{userSelect: 'none'}}>
+    <div id="game-over">
       <h2>Game Over!</h2>
 
       {winner && (

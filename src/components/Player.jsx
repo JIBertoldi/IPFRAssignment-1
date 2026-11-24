@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Avatar from './Avatar';
 
@@ -25,33 +26,39 @@ export default function Player({
     setPlayerName(event.target.value);
   }
 
-  let editablePlayerName = <span className="player-name">{playerName}</span>;
-  // let btnCaption = 'Edit';
+  let editablePlayerName = (
+    <span className="player-name">{playerName}</span>
+  );
 
   if (isEditing) {
     editablePlayerName = (
-      <input type="text" required value={playerName} onChange={handleChange} />
+      <input
+        type="text"
+        required
+        value={playerName}
+        onChange={handleChange}
+      />
     );
-    // btnCaption = 'Save';
   }
 
   return (
-    <li
-      className={isActive ? 'active' : undefined}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '1rem' , borderRadius: '0.5rem' }}
-    >
+    <li className={`player-item ${isActive ? 'active' : ''}`}>
       <Avatar
         active={isActive}
         image={image}
         stats={stats}
         onImageChange={(event) => onImageChange(symbol, event)}
       />
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+
+      <div className="player-info">
         <span className="player">
           {editablePlayerName}
           <span className="player-symbol">{symbol}</span>
         </span>
-        <button onClick={handleEditClick}>{isEditing ? 'Save' : 'Edit'}</button>
+
+        <button onClick={handleEditClick}>
+          {isEditing ? 'Save' : 'Edit'}
+        </button>
       </div>
     </li>
   );
