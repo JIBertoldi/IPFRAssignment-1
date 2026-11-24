@@ -68,61 +68,62 @@ export default function Avatar({
 					Edit
 				</span>
 			)}
-
-			<div
-				style={{
-					position: "absolute",
-					bottom: 0,
-					left: 0,
-					right: 0,
-					height: "35%",
-					display: "flex",
-					transform: isHovered
-						? "translateY(0)"
-						: "translateY(100%)",
-					transition: "transform 300ms ease",
-					borderTop: `2px solid ${active ? "#facc15" : "#9ca3af"}`,
-					color: "black",
-					textAlign: "center",
-					pointerEvents: "none",
-				}}
-			>
+			{editable && (
 				<div
 					style={{
-						flex: 1,
-						background: "#00ff00",
-						fontSize: "0.75rem",
+						position: "absolute",
+						bottom: 0,
+						left: 0,
+						right: 0,
+						height: "35%",
 						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						fontWeight: "600",
-						borderRight: `1px solid ${active ? "#facc15" : "#9ca3af"}`,
-						paddingLeft: "1rem",
+						transform: isHovered
+							? "translateY(0)"
+							: "translateY(100%)",
+						transition: "transform 300ms ease",
+						borderTop: `2px solid ${active ? "#facc15" : "#9ca3af"}`,
+						color: "black",
+						textAlign: "center",
+						pointerEvents: "none",
 					}}
 				>
-					<span>WINS</span>
-					<span style={{alignSelf:"flex-end", marginRight:"0.5rem"}}>{stats.wins}</span>
-				</div>
+					<div
+						style={{
+							flex: 1,
+							background: "#00ff00",
+							fontSize: "0.75rem",
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "center",
+							fontWeight: "600",
+							borderRight: `1px solid ${active ? "#facc15" : "#9ca3af"}`,
+							paddingLeft: "1rem",
+						}}
+					>
+						<span>WINS</span>
+						<span style={{ alignSelf: "flex-end", marginRight: "0.5rem" }}>{stats.wins}</span>
+					</div>
 
-				<div
-					style={{
-						flex: 1,
-						background: "#ffdf00",
-						fontSize: "0.75rem",
-						borderLeft: `1px solid ${active ? "#facc15" : "#9ca3af"}`,
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-						justifyContent: "center",
-						fontWeight: "600",
-						paddingRight: "1rem",
-					}}
-				>
-					<span>DRAWS</span>
-					<span style={{alignSelf:"flex-start" , marginLeft:"0.5rem"}}>{stats.draws}</span>
+					<div
+						style={{
+							flex: 1,
+							background: "#ffdf00",
+							fontSize: "0.75rem",
+							borderLeft: `1px solid ${active ? "#facc15" : "#9ca3af"}`,
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							justifyContent: "center",
+							fontWeight: "600",
+							paddingRight: "1rem",
+						}}
+					>
+						<span>DRAWS</span>
+						<span style={{ alignSelf: "flex-start", marginLeft: "0.5rem" }}>{stats.draws}</span>
+					</div>
 				</div>
-			</div>
+			)}
 
 			{editable && (
 				<input
