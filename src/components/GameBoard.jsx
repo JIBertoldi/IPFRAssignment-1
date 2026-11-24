@@ -1,0 +1,24 @@
+export default function GameBoard({ onSelectSquare, board }) {
+  return (
+    <ol id="game-board">
+      {board.map((row, rowIndex) => (
+        <li key={rowIndex}>
+          <ol>
+            {row.map((playerSymbol, colIndex) => (
+              <li key={colIndex}>
+                <button
+                  className={playerSymbol ? `shake ${playerSymbol.toLowerCase()}selected` : ''}
+                  onClick={() => onSelectSquare(rowIndex, colIndex)}
+                  disabled={playerSymbol !== null}
+                  style={{borderRadius: '0.5rem'}}
+                >
+                  {playerSymbol}
+                </button>
+              </li>
+            ))}
+          </ol>
+        </li>
+      ))}
+    </ol>
+  );
+}
